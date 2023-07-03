@@ -23,7 +23,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[200],
+        color: colors.grey[100],
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -79,12 +79,13 @@ const Sidebar = () => {
                 ml="15px"
               >
                 <img
-                  alt="profile-user"
+                  alt="logo"
                   width="40px"
                   height="40x"
                   src={`../../assets/wg_logo.png`}
                   style={{ cursor: "pointer"}}
                   backgroundColor="#2AAA8A"
+                  
                 />
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -93,6 +94,32 @@ const Sidebar = () => {
             )}
           </MenuItem>
 
+          {!isCollapsed && (
+            <Box mb="25px">
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <img
+                  alt="profile-user"
+                  width="80px"
+                  height="80px"
+                  src={`../../assets/user.png`}
+                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                />
+              </Box>
+              <Box textAlign="center">
+                <Typography
+                  variant="h3"
+                  color={colors.grey[100]}
+                  fontWeight="bold"
+                  sx={{ m: "10px 0 0 0" }}
+                >
+                  Liam Gosnell
+                </Typography>
+                <Typography variant="h5" color={colors.greenAccent[500]}>
+                  Web Developer
+                </Typography>
+              </Box>
+            </Box>
+          )}
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Home"
@@ -103,7 +130,7 @@ const Sidebar = () => {
             />
 
             <Typography
-              variant="h6"
+              variant="h4"
               color={colors.grey[100]}
               sx={{ m: "30px 0 5px 10px" }}
             >
@@ -160,7 +187,7 @@ const Sidebar = () => {
             />
 
             <Typography
-              variant="h6"
+              variant="h4"
               color={colors.grey[100]}
               sx={{ m: "30px 0 5px 10px" }}
             >
